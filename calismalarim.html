@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <link rel="icon" type="image/png" href="assets/resim2.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çalışmalarım | Arda Karadağ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-link"><i class="fas fa-home"></i> <span>Ana Menü</span></a>
+            <a href="hakkimda.html" class="nav-link"><i class="fas fa-user"></i> <span>Hakkımda</span></a>
+            <a href="calismalarim.html" class="nav-link active"><i class="fas fa-code"></i> <span>Çalışmalarım</span></a>
+            <a href="sertifikalar.html" class="nav-link"><i class="fas fa-certificate"></i> <span>Sertifikalar</span></a>
+            <a href="iletisim.html" class="nav-link"><i class="fas fa-envelope"></i> <span>İletişim</span></a>
+        </div>
+    </nav>
+
+    <div class="container page-layout">
+        <h2 class="section-heading">Geliştirdiğim Sistemler</h2>
+        
+        <div class="projects-grid">
+            <div class="glass-card project-card">
+                <div class="work-icon"><i class="fas fa-box-open"></i></div>
+                <div class="work-info">
+                    <h4>MixCodder | Stok Takip ERP</h4>
+                    <p>KOBİ'ler için geliştirilen AI destekli stok takip ve yönetim sistemi. Proje yöneticiliği ve Full Stack geliştirme.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">C# .NET Core</span>
+                        <span class="tech-badge">Python Django</span>
+                        <span class="tech-badge">GeminiAPI</span>
+                        <span class="tech-badge">Yönetim</span>
+                    </div>
+                    <button class="view-project-btn" onclick="openModal('assets/mixcodderphoto.png')">
+                        <i class="fas fa-image"></i> Proje Görseli
+                    </button>
+                </div>
+            </div>
+
+            <div class="glass-card project-card">
+                <div class="work-icon"><i class="fas fa-wind"></i></div>
+                <div class="work-info">
+                    <h4>AirSense | IoT Projesi</h4>
+                    <p>AI destekli hava kalite ölçüm analiz ve acil durum uyarı sistemi . Proje yöneticiliği mobil ve backend geliştirme.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">SQL</span> 
+                        <span class="tech-badge">Python</span> 
+                        <span class="tech-badge">React Native</span>
+                        <span class="tech-badge">GeminiAPI</span>
+                        <span class="tech-badge">Yönetim</span>
+                    </div>
+                    <button class="view-project-btn" onclick="openModal('assets/airsensephoto.jpg')">
+                        <i class="fas fa-image"></i> Proje Görseli
+                    </button>
+                </div>
+            </div>
+
+            <div class="glass-card project-card">
+                <div class="work-icon"><i class="fas fa-database"></i></div>
+                <div class="work-info">
+                    <h4>T.C. İçişleri Bakanlığı Nüfus ve Vatandaşlık İşleri GM (BVYS)</h4>
+                    <p>Biyometrik Veri Yönetim Sistemi stajı. Veritabanı tasarımı ve optimizasyonu.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">PostgreSQL</span>
+                        <span class="tech-badge">Veri Yönetimi</span>
+                        <span class="tech-badge">Kamu</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="glass-card github-section">
+            <div class="card-title"><i class="fab fa-github"></i> Git Projelerim</div>
+            <p>Açık kaynak kodlu tüm projelerimi ve kod yapılarımı inceleyebilirsiniz.</p>
+            <a href="https://github.com/ArdaKaradag36" target="_blank" class="social-btn">
+                GitHub Profilime Git <i class="fas fa-arrow-right"></i>
+            </a>
+        </section>
+    </div>
+
+    <footer>&copy; 2025 Arda Karadağ. Tüm Hakları Saklıdır.</footer>
+
+    <!-- Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg" alt="Proje Görseli">
+    </div>
+
+    <!-- JavaScript DOĞRU YOLU -->
+    <script>
+        // MODAL FONKSİYONLARI
+        function openModal(imageSrc) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImg");
+            
+            console.log("Modal açılıyor:", imageSrc);
+            
+            if (modal && modalImg) {
+                modal.style.display = "flex";
+                modalImg.src = imageSrc;
+                document.body.style.overflow = "hidden";
+            } else {
+                console.error("Modal bulunamadı!");
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("imageModal");
+            if (modal) {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
+
+        // Modal dışına tıklayınca kapat
+        window.onclick = function(event) {
+            const modal = document.getElementById("imageModal");
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // ESC tuşu ile kapat
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Arka plan animasyonu
+        document.addEventListener('mousemove', (e) => {
+            const bg = document.querySelector('.bg-animation');
+            if (bg) {
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                bg.style.transform = `translate(-${x * 20}px, -${y * 20}px) scale(1.1)`;
+            }
+        });
+    </script>
+</body>
+</html>
