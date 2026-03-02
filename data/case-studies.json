@@ -1,0 +1,75 @@
+[
+  {
+    "title": "AirSense IoT Platform",
+    "role": "Proje Yöneticisi & Full Stack Developer",
+    "timeline": "2025",
+    "stack": [
+      "ESP32",
+      "C++",
+      "MQTT",
+      "Python",
+      "React Native",
+      "SQL"
+    ],
+    "description": "Gerçek zamanlı hava kalite ölçümü, analiz ve acil durum uyarıları için uçtan uca IoT platformu. Sahadaki cihazlardan gelen sensör verilerini güvenli biçimde toplayıp, merkezî veri tabanında işleyerek mobil uygulama üzerinden okunabilir, aksiyon alınabilir hale getiriyorum.",
+    "problem": "Farklı lokasyonlardaki hava kalite sensörlerinden gelen verilerin dağınık, manuel ve gecikmeli yönetilmesi; anlık eşik aşımlarında bildirim alınamaması ve geçmiş verilerin analitiğe uygun tutulmaması.",
+    "architecture": "Katmanlı bir mimari kurgulandı: Cihaz katmanında ESP32 tabanlı sensörler, iletişim katmanında MQTT tabanlı mesajlaşma, backend katmanında Python servisleri ve ilişkisel veri tabanı, istemci katmanında React Native mobil uygulama. API yüzeyi REST prensiplerine uygun tasarlandı, okuma/yazma operasyonları için ayrı uç noktalar ve basit, versiyonlanabilir endpoint yapısı kullanıldı.",
+    "implementation": {
+      "backend": "Backend tarafında Python ile yazılmış servisler MQTT broker'dan gelen verileri tüketip validasyon ve normalizasyon sonrası SQL tabanlı veri tabanına yazıyor. Zaman damgası, cihaz kimliği ve sensör tipine göre indekslenmiş tablolarda saklanan veriler, okuma tarafında hafif SELECT sorguları ve gerekiyorsa toplulaştırma (GROUP BY, window fonksiyonları) ile sunuluyor.",
+      "frontend": "React Native mobil uygulamada, ekranlar komponent bazlı bir yapı ile modüler tutuldu. Gerçek zamanlı veri okuma için periyodik polling ve hafif cache katmanı kullanıldı. Liste ve grafik bileşenleri, düşük gecikmede yeniden render olacak şekilde sade state yönetimi ile tasarlandı.",
+      "database": "Veri tabanı, cihaz, ölçüm ve eşik tanımlarını ayrı tablolara bölen, normalize bir şema ile kuruldu. Okuma yoğun sorgular için zaman damgası ve cihaz kimliği üzerinde bileşik indeksler kullanıldı. Sık sorgulanan son X kayıt gibi senaryolar için WHERE koşulları indeks dostu olacak şekilde kurgulandı."
+    },
+    "performance": "Zaman damgası ve cihaz kimliği üzerinde oluşturulan indeksler sayesinde raporlama sorgularında yanıt süresi gözle görülür şekilde iyileştirildi. Sadece ihtiyaç duyulan alanların seçilmesi ve sayfalama uygulanmasıyla, mobil uygulamanın veri çekme süresi ve payload boyutu azaltıldı.",
+    "engineering": "Katmanlı yapı, domain'e özel verimlilik kurallarını data access katmanından ayrıştırarak SOLID prensiplerine yakın bir ayrışma sağladı. Konfigürasyon, ortam değişkenleri ve yeniden kullanılabilir yardımcı fonksiyonlar ayrı modüllere izole edildi. Sensör verisi işleme, hata toleransı ve loglama için modüler fonksiyonlar tercih edildi.",
+    "github": "https://github.com/ArdaKaradag36",
+    "demo": ""
+  },
+  {
+    "title": "MixCodder Stok Takip ERP",
+    "role": "Proje Yöneticisi & Backend Developer",
+    "timeline": "2025",
+    "stack": [
+      "C#",
+      "ASP.NET Core",
+      "Python",
+      "Django",
+      "SQL",
+      "Gemini API"
+    ],
+    "description": "KOBİ'ler için stok odaklı ERP sistemi. Farklı platformlarda (C# ASP.NET Core ve Python Django) çalışan modüllerle stok, sipariş ve raporlama süreçlerini merkezi bir model altında topluyorum.",
+    "problem": "Manuel takip edilen stok hareketleri, tutarsız raporlar ve farklı sistemlerde kopyalanan veriler hem operasyonel hatalara hem de karar mekanizmasında yanlış metriklere yol açıyordu.",
+    "architecture": "Sistem, tipik bir katmanlı mimari ile ele alındı: Sunum katmanı (web arayüz), iş kuralları katmanı (domain servisleri) ve veri erişim katmanı (repository/ORM). ASP.NET Core tarafında REST tarzı API'ler; Django tarafında ise yönetim paneli ve belirli domain özel fonksiyonlar sağlandı. Ortak domain modeli ile iki platform arasında veri tutarlılığı korunmaya odaklanıldı.",
+    "implementation": {
+      "backend": "ASP.NET Core'da controller katmanı sadece HTTP isteklerini karşılayıp, iş kuralları için application/domain servislerine delegasyon yapacak şekilde sade tutuldu. Veritabanı erişiminde ORM ve gerektiği noktada ham SQL sorguları birlikte kullanıldı. Django'da model tanımları ile yönetim paneli üzerinden CRUD operasyonları hızlandırıldı.",
+      "frontend": "Web arayüzü, stok listeleri ve hareket detaylarını okunabilir kılmak için tablo ve kart bileşenleriyle tasarlandı. Filtreleme, sıralama ve sayfalama fonksiyonları ile büyük veri setlerinde kullanılabilirlik artırıldı.",
+      "database": "Stok, hareket, depo ve kullanıcı gibi kavramlar ayrı tablolarda, ilişkisel (foreign key) yapı ile modellendi. Sık kullanılan raporlar için tarih, stok ve depo kolonları üzerinde indeksler tanımlandı. Transaction yapıları ile kritik hareketlerde tutarlılık sağlandı."
+    },
+    "performance": "Sorgu planları incelenerek gerekli alanlara indeksler eklendi; ağır raporların önce filtre sonra grupla mantığıyla yazılması sağlandı. Yanıt sürelerini kısaltmak için sadece ihtiyaç duyulan kolonlar seçildi ve gereksiz join'ler sadeleştirildi.",
+    "engineering": "SOLID prensiplerine yakın duran, dependency injection kullanan bir yapı tercih edildi. Ortak kod parçaları yardımcı servisler ve extension metodlar altında toplandı. Katmanlar arası kontratlar (DTO'lar, view modeller) ile domain modeli UI'dan izole edildi.",
+    "github": "https://github.com/ArdaKaradag36",
+    "demo": ""
+  },
+  {
+    "title": "BVYS PostgreSQL Optimizasyon Çalışmaları",
+    "role": "Stajyer - Veri Tabanı Geliştirici",
+    "timeline": "2025 (Staj)",
+    "stack": [
+      "PostgreSQL",
+      "SQL",
+      "Veri Modelleme"
+    ],
+    "description": "T.C. İçişleri Bakanlığı Nüfus ve Vatandaşlık İşleri GM bünyesinde, biyometrik veri yönetimi odaklı PostgreSQL veri tabanı üzerinde tasarım ve performans optimizasyonu çalışmalarına katkı sağladım.",
+    "problem": "Büyük hacimli biyometrik veri setlerinde bazı sorguların yavaş çalışması, indeks ve veri modelinin belirli senaryolarda yeterince verimli olmaması ve raporlamada gereğinden fazla I/O oluşması.",
+    "architecture": "Merkezî PostgreSQL veri tabanında; kimlik, biyometrik veri ve işlem logları gibi kavramlar arasında ilişkisel, güvenli ve izlenebilir bir yapı kurgulandı. Operasyonel okuma/yazma yükü ile raporlama ihtiyaçları ayrıştırılmaya çalışıldı.",
+    "implementation": {
+      "backend": "Uygulama katmanı tarafında çalışan sorguların, veri tabanında nasıl yürütüldüğünü anlamak için EXPLAIN ve EXPLAIN ANALYZE çıktıları incelendi; indeks ve sorgu yazım tarzı buna göre revize edildi.",
+      "frontend": "Odak backend ve veri tabanı tarafında olduğundan, arayüz değişiklikleri yerine veri tabanı seviyesindeki iyileştirmelere odaklanıldı.",
+      "database": "Sorgu desenlerine göre B-tree indeksler eklendi, gereksiz sequential scan'e sebep olan koşullar iyileştirildi. Normalizasyon derecesi, okuma performansı ile yazma maliyeti arasında dengeli olacak şekilde ele alındı."
+    },
+    "performance": "Kritik sorgular için planlar optimize edilerek, sorgu süreleri düşürüldü. Uygun indeksleme, gereksiz tam tablo taramalarını azalttı ve I/O yükü hafifledi.",
+    "engineering": "Performans analizi yapılırken sistematik bir yaklaşım benimsendi: önce ölçüm, sonra hipotez, ardından kontrollü değişiklik ve tekrar ölçüm. Değişiklikler dokümante edilerek hangi indeks ve sorgu revizyonunun nasıl bir etki ürettiği kayıt altına alındı.",
+    "github": "https://github.com/ArdaKaradag36",
+    "demo": ""
+  }
+]
+
