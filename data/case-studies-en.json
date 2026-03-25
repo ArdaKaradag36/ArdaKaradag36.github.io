@@ -1,0 +1,74 @@
+[
+  {
+    "title": "AirSense IoT Platform",
+    "role": "Project Manager & Full Stack Developer",
+    "timeline": "2025",
+    "stack": [
+      "ESP32",
+      "C++",
+      "MQTT",
+      "Python",
+      "React Native",
+      "SQL"
+    ],
+    "description": "End-to-end IoT platform for real-time air quality measurement, analysis and emergency alerts. I securely collect sensor data from field devices, process it in a centralised database and present it through a mobile application in a readable, actionable format.",
+    "problem": "Scattered, manual and delayed management of data from air quality sensors at different locations; inability to receive notifications when instantaneous thresholds are exceeded; and historical data not being kept in a format suitable for analytics.",
+    "architecture": "A layered architecture was established: ESP32-based sensors at the device layer, MQTT-based messaging at the communication layer, Python services and a relational database at the backend layer, and a React Native mobile application at the client layer. The API surface was designed according to REST principles, using separate endpoints for read/write operations and a simple, versionable endpoint structure.",
+    "implementation": {
+      "backend": "Python-written services on the backend side consume data from the MQTT broker and, after validation and normalisation, write it to a SQL-based database. Data stored in tables indexed by timestamp, device ID and sensor type is served on the read side through lightweight SELECT queries and, where necessary, aggregations (GROUP BY, window functions).",
+      "frontend": "In the React Native mobile application, screens were kept modular with a component-based structure. Periodic polling and a lightweight cache layer were used for real-time data reading. List and chart components were designed with simple state management to re-render with low latency.",
+      "database": "The database was established with a normalised schema that splits devices, measurements and threshold definitions into separate tables. Composite indexes on timestamp and device ID were used for read-heavy queries. WHERE conditions were structured to be index-friendly for frequently queried scenarios such as the last X records."
+    },
+    "performance": "Thanks to indexes created on timestamp and device ID, response times in reporting queries were visibly improved. By selecting only the required fields and applying pagination, the mobile application's data-fetch time and payload size were reduced.",
+    "engineering": "The layered structure provided separation close to SOLID principles by decoupling domain-specific business rules from the data access layer. Configuration, environment variables and reusable helper functions were isolated into separate modules. Modular functions were preferred for sensor data processing, error tolerance and logging.",
+    "github": "https://github.com/ArdaKaradag36",
+    "demo": ""
+  },
+  {
+    "title": "MixCodder Inventory ERP",
+    "role": "Project Manager & Backend Developer",
+    "timeline": "2025",
+    "stack": [
+      "C#",
+      "ASP.NET Core",
+      "Python",
+      "Django",
+      "SQL",
+      "Gemini API"
+    ],
+    "description": "Inventory-focused ERP system for SMEs. I consolidate inventory, order and reporting processes under a central model using modules running on different platforms (C# ASP.NET Core and Python Django).",
+    "problem": "Manually tracked inventory movements, inconsistent reports and data duplicated across different systems led to both operational errors and incorrect metrics in the decision-making process.",
+    "architecture": "The system was approached with a typical layered architecture: presentation layer (web interface), business rules layer (domain services) and data access layer (repository/ORM). The ASP.NET Core side provides REST-style APIs; the Django side provides an admin panel and certain domain-specific functions. The focus was on maintaining data consistency between the two platforms using a shared domain model.",
+    "implementation": {
+      "backend": "In ASP.NET Core, the controller layer was kept simple, only receiving HTTP requests and delegating to application/domain services for business rules. ORM was used for database access alongside raw SQL queries where needed. CRUD operations were accelerated through model definitions and the admin panel in Django.",
+      "frontend": "The web interface was designed with table and card components to make inventory lists and movement details readable. Filtering, sorting and pagination functions improved usability across large datasets.",
+      "database": "Concepts such as inventory, movements, warehouses and users were modelled in separate tables with a relational (foreign key) structure. Indexes were defined on date, stock and warehouse columns for frequently used reports. Transaction structures ensured consistency in critical movements."
+    },
+    "performance": "Query plans were examined and indexes were added to the necessary fields; heavy reports were written with a filter-first, then group logic. Only the required columns were selected and unnecessary joins were simplified to reduce response times.",
+    "engineering": "A structure close to SOLID principles using dependency injection was preferred. Common code pieces were gathered under helper services and extension methods. Contracts between layers (DTOs, view models) isolated the domain model from the UI.",
+    "github": "https://github.com/ArdaKaradag36",
+    "demo": ""
+  },
+  {
+    "title": "BVYS PostgreSQL Optimisation Work",
+    "role": "Intern – Database Developer",
+    "timeline": "2025 (Internship)",
+    "stack": [
+      "PostgreSQL",
+      "SQL",
+      "Data Modelling"
+    ],
+    "description": "Within the General Directorate of Population and Citizenship Affairs, Ministry of Interior of the Republic of Türkiye, I contributed to design and performance optimisation work on a PostgreSQL database focused on biometric data management.",
+    "problem": "Some queries running slowly on large-volume biometric datasets, the index and data model not being efficient enough in certain scenarios, and excessive I/O being generated during reporting.",
+    "architecture": "A relational, secure and traceable structure was established in the central PostgreSQL database among concepts such as identity records, biometric data and transaction logs. The goal was to separate the operational read/write load from reporting needs.",
+    "implementation": {
+      "backend": "EXPLAIN and EXPLAIN ANALYZE outputs were examined to understand how queries running at the application layer were being executed in the database; the index and query writing style were revised accordingly.",
+      "frontend": "Since the focus was on the backend and database side, improvements at the database level were prioritised rather than interface changes.",
+      "database": "B-tree indexes were added according to query patterns, and conditions causing unnecessary sequential scans were improved. The degree of normalisation was handled to strike a balance between read performance and write cost."
+    },
+    "performance": "Plans for critical queries were optimised, reducing query times. Proper indexing reduced unnecessary full table scans and lightened the I/O load.",
+    "engineering": "A systematic approach was adopted during performance analysis: measure first, then hypothesise, then make a controlled change, then measure again. Changes were documented so that the effect of each index and query revision was recorded.",
+    "github": "https://github.com/ArdaKaradag36",
+    "demo": ""
+  }
+]

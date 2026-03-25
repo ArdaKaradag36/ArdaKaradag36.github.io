@@ -1,21 +1,43 @@
+const page = window.location.pathname.split('/').pop() || '';
+const isEn = page === 'experience.html';
+
+const jsonFile = isEn ? 'data/case-studies-en.json' : 'data/case-studies.json';
+
+const labels = isEn ? {
+    summary:        'Summary',
+    problem:        'Problem Statement',
+    architecture:   'System Architecture',
+    implementation: 'Implementation Details',
+    performance:    'Performance & Optimisation',
+    engineering:    'Engineering Practices',
+    demo:           'Live Demo',
+    error:          'Case study content could not be loaded. Please try again later.'
+} : {
+    summary:        'Özet',
+    problem:        'Problem Tanımı',
+    architecture:   'Sistem Mimarisi',
+    implementation: 'Uygulama Detayları',
+    performance:    'Performans & Optimizasyon',
+    engineering:    'Mühendislik Pratikleri',
+    demo:           'Canlı Demo',
+    error:          'Şu anda case study içeriği yüklenemiyor. Lütfen daha sonra tekrar deneyin.'
+};
+
 async function loadCaseStudies() {
     const container = document.getElementById('case-studies-root');
     if (!container) return;
 
     try {
-        const response = await fetch('data/case-studies.json', { cache: 'no-store' });
-        if (!response.ok) {
-            throw new Error('Case study verisi alınamadı');
-        }
+        const response = await fetch(jsonFile, { cache: 'no-store' });
+        if (!response.ok) throw new Error(labels.error);
 
         const caseStudies = await response.json();
         caseStudies.forEach((item, index) => {
-            const article = createCaseStudyElement(item, index);
-            container.appendChild(article);
+            container.appendChild(createCaseStudyElement(item, index));
         });
     } catch (error) {
         console.error(error);
-        container.textContent = 'Şu anda case study içeriği yüklenemiyor. Lütfen daha sonra tekrar deneyin.';
+        container.textContent = labels.error;
     }
 }
 
@@ -67,16 +89,16 @@ function createCaseStudyElement(data, idx) {
     header.appendChild(meta);
     article.appendChild(header);
 
-    appendSection(article, 'Özet', data.description);
-    appendSection(article, 'Problem Tanımı', data.problem);
-    appendSection(article, 'Sistem Mimarisi', data.architecture);
+    appendSection(article, labels.summary, data.description);
+    appendSection(article, labels.problem, data.problem);
+    appendSection(article, labels.architecture, data.architecture);
 
     if (data.implementation) {
         const implWrapper = document.createElement('div');
 
         const implTitle = document.createElement('h3');
         implTitle.className = 'case-study-section-title';
-        implTitle.textContent = 'Uygulama Detayları';
+        implTitle.textContent = labels.implementation;
         implWrapper.appendChild(implTitle);
 
         ['backend', 'frontend', 'database'].forEach((key) => {
@@ -98,8 +120,8 @@ function createCaseStudyElement(data, idx) {
         article.appendChild(implWrapper);
     }
 
-    appendSection(article, 'Performans & Optimizasyon', data.performance);
-    appendSection(article, 'Mühendislik Pratikleri', data.engineering);
+    appendSection(article, labels.performance, data.performance);
+    appendSection(article, labels.engineering, data.engineering);
 
     const linksWrapper = document.createElement('div');
     linksWrapper.className = 'case-study-links';
@@ -120,7 +142,7 @@ function createCaseStudyElement(data, idx) {
         demoLink.target = '_blank';
         demoLink.rel = 'noopener noreferrer';
         demoLink.className = 'case-study-link';
-        demoLink.innerHTML = `<i class="fas fa-external-link-alt" aria-hidden="true"></i><span>Canlı Demo</span>`;
+        demoLink.innerHTML = `<i class="fas fa-external-link-alt" aria-hidden="true"></i><span>${labels.demo}</span>`;
         linksWrapper.appendChild(demoLink);
     }
 
@@ -149,4 +171,3 @@ function appendSection(parent, label, text) {
 document.addEventListener('DOMContentLoaded', () => {
     loadCaseStudies();
 });
-
