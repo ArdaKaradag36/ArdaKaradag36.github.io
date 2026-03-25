@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // TR / EN language switcher
     const langMap = {
-        'anasayfa.html':    'index.html',
-        'index.html':       'anasayfa.html',
+        'index.html':       'home.html',
+        'home.html':        'index.html',
         'hakkimda.html':    'about.html',
         'about.html':       'hakkimda.html',
         'calismalarim.html':'projects.html',
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const trPages = new Set([
-        'anasayfa.html', 'hakkimda.html', 'calismalarim.html',
+        'index.html', 'hakkimda.html', 'calismalarim.html',
         'sertifikalar.html', 'deneyim.html', 'iletisim.html'
     ]);
 
