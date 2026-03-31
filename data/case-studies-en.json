@@ -70,5 +70,58 @@
     "engineering": "A systematic approach was adopted during performance analysis: measure first, then hypothesise, then make a controlled change, then measure again. Changes were documented so that the effect of each index and query revision was recorded.",
     "github": "https://github.com/ArdaKaradag36",
     "demo": ""
+  },
+  {
+    "title": "WEB-MONITOR – Self-Hosted HTTP/HTTPS Monitoring Platform",
+    "role": "Intern – Backend & Observability-Focused Developer",
+    "timeline": "2025 (BVYS Internship)",
+    "stack": [
+      "Python",
+      "FastAPI",
+      "Asyncio",
+      "aiohttp",
+      "SQLite (WAL)",
+      "Docker",
+      "Nginx",
+      "Prometheus"
+    ],
+    "description": "As part of my BVYS internship, I worked on WEB-MONITOR, a self‑hosted, asynchronous HTTP/HTTPS monitoring platform designed so public-sector and enterprise teams can monitor their web services entirely on-prem. The goal is to track uptime, latency and SLO breaches via a central dashboard, Prometheus metrics and CLI reports without relying on third‑party SaaS vendors. [Source: `WEB-MONITOR` README] (https://github.com/ArdaKaradag36/WEB-MONITOR)",
+    "problem": "Public and enterprise web services were scattered across environments and could not be monitored from a single pane of glass, especially without external SaaS tools. During global outages, alert storms were common, while simple ping checks were not enough to capture latency and SLO‑based quality signals.",
+    "architecture": "The system is built around an async monitor loop that reads target definitions from YAML/TXT files, a central SQLite database running in WAL mode, a FastAPI‑based REST API and NOC dashboard, a Prometheus `/metrics` endpoint, and CLI/TUI reporting. Nginx sits in front as a reverse proxy, protecting sensitive endpoints like `/metrics` with Basic Auth and network policy. With Docker Compose, the full stack can be started with a single command.",
+    "implementation": {
+      "backend": "Using Python 3.10+, asyncio and aiohttp, we implemented a monitor loop that can probe thousands of HTTP/HTTPS targets concurrently with AIMD‑style concurrency and backpressure control. To harden against SSRF, DNS resolution and private IP filtering were added, alongside response body size limits and per‑target TLS certificate expiry checks that are configurable via YAML. Health, incident and SLO calculation logic is exposed through FastAPI routes.",
+      "frontend": "For the FastAPI dashboard, I worked with a lightweight NOC UI built using HTML, CSS and Vanilla JavaScript. Service status summaries, incident lists and SLO reports are pulled from the API as JSON and rendered as responsive cards and tables optimised for both desktop and mobile. The focus is on clear incident timelines and quick drill‑down into latency distributions.",
+      "database": "SQLite is configured in WAL mode to balance concurrent writes from the async monitor loop with read traffic from the API and dashboard. Uptime, latency and incident records are stored in indexed tables keyed by target and wave (monitor iteration). Percentile calculations (p50/p95/p99) are implemented with queries that carefully trade off read performance against write cost."
+    },
+    "performance": "Thanks to the async I/O model and AIMD backpressure, WEB-MONITOR can scale to a high number of targets while remaining stable. HTTP timeout, retry, jitter and a global circuit breaker help prevent alert storms during network incidents. Prometheus metrics provide visibility into latency distributions and error budget consumption, guiding further tuning of queries, indexes and concurrency limits.",
+    "engineering": "Throughout the project we followed modern engineering practices: configuration via environment variables, defense‑in‑depth against SSRF and secret leakage, and a CI pipeline with Ruff, Pytest and Gitleaks. Docker Compose provides reproducible environments, while START/README documentation enables fast onboarding for operators and developers.",
+    "github": "https://github.com/ArdaKaradag36/WEB-MONITOR",
+    "demo": ""
+  },
+  {
+    "title": "WEB-AUDIT – Browser-Based Web Application Auditing Tool",
+    "role": "Intern – Security & Quality Signals-Focused Developer",
+    "timeline": "2025 (BVYS Internship)",
+    "stack": [
+      "Playwright",
+      "TypeScript",
+      "Node.js",
+      "C#",
+      ".NET",
+      "PostgreSQL",
+      "Docker"
+    ],
+    "description": "In BVYS environments I contributed to WEB-AUDIT, a browser‑based (Playwright) auditing tool that produces technical risk signals for web applications. The system summarises security headers, network failures, accessibility/SEO/privacy signals and UI interaction coverage into JSON artefacts that can be consumed by security, QA and platform teams. [Source: `WEB-AUDIT` README] (https://github.com/ArdaKaradag36/WEB-AUDIT)",
+    "problem": "Beyond simple uptime checks or basic functional tests, there was no systematic, repeatable way to scan applications for security posture, third‑party tracking, accessibility and network errors. Manual browser checks do not scale and are difficult to integrate into CI pipelines or compliance workflows.",
+    "architecture": "WEB-AUDIT consists of a Playwright‑based runner core, a Postgres job store that persists audit jobs and results, queue worker services that execute and process jobs, and components that aggregate and surface outputs. SSRF protections exist on both host and runner; for enterprise hardening, features like mTLS, signing and policy enforcement are included in the design. Each run typically produces artefacts such as `summary.json`, `gaps.json`, `ui-inventory.json`, `console.json`, `network.json` and `request_failed.json`.",
+    "implementation": {
+      "backend": "In the runner core, we designed scenarios that capture HTTP/network/console events and, as pages load, analyse security headers, redirects, third‑party scripts and failed requests. SSRF exposure is reduced using host allowlists, redirect rules and additional checks around sensitive endpoints. The Postgres schema for jobs and runs is modelled so that workers can be scaled out horizontally while keeping job state consistent.",
+      "frontend": "Since the focus is automation and reporting, UI work concentrates on basic reporting views and CI‑oriented visualisations of audit outputs. Dedicated a11y jobs feed accessibility findings into separate dashboards and documentation so that product and QA teams can act on them.",
+      "database": "On Postgres we designed tables for jobs, runs, steps and artefacts. Considering artefact size and query patterns, we added indexes and retention policies that keep historical data useful without uncontrolled growth. State machines and queue semantics ensure workers can process jobs in parallel without double‑processing."
+    },
+    "performance": "Parallel execution of Playwright‑based audits and the job store architecture allow multiple sites and scenarios to complete within acceptable CI time budgets. Where streaming was not necessary, batch processing of network and console logs was used to strike a balance between memory usage, throughput and artefact size.",
+    "engineering": "WEB-AUDIT embraces a \"security‑first signal\" product stance, meaning UI automation metrics are treated as signals rather than guarantees of business logic correctness. For enterprise hardening we prepared guidance for mTLS, signing and policies under `docs/`, and for CI we focused on reproducible runner images and clear START/README documentation so that teams can onboard quickly and operate the tool safely.",
+    "github": "https://github.com/ArdaKaradag36/WEB-AUDIT",
+    "demo": ""
   }
 ]

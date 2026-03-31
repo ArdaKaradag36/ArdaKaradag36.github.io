@@ -70,6 +70,59 @@
     "engineering": "Performans analizi yapılırken sistematik bir yaklaşım benimsendi: önce ölçüm, sonra hipotez, ardından kontrollü değişiklik ve tekrar ölçüm. Değişiklikler dokümante edilerek hangi indeks ve sorgu revizyonunun nasıl bir etki ürettiği kayıt altına alındı.",
     "github": "https://github.com/ArdaKaradag36",
     "demo": ""
+  },
+  {
+    "title": "WEB-MONITOR – Self-Hosted HTTP/HTTPS İzleme Platformu",
+    "role": "Stajyer – Backend & Observability Odaklı Geliştirici",
+    "timeline": "2025 (BVYS Stajı)",
+    "stack": [
+      "Python",
+      "FastAPI",
+      "Asyncio",
+      "aiohttp",
+      "SQLite (WAL)",
+      "Docker",
+      "Nginx",
+      "Prometheus"
+    ],
+    "description": "BVYS stajım kapsamında, kamu kurumlarının web servislerini kendi veri merkezlerinde izleyebilmesi için tasarlanmış, self-hosted ve asenkron çalışan HTTP/HTTPS izleme platformu üzerinde çalıştım. Amaç; uptime, gecikme ve SLO ihlallerini merkezi bir dashboard, Prometheus metrikleri ve CLI raporları üzerinden görünür kılmaktı. [Kaynak: `WEB-MONITOR` README] (https://github.com/ArdaKaradag36/WEB-MONITOR)",
+    "problem": "Dağınık durumdaki kamu ve kurumsal web servislerinin, üçüncü parti SaaS ürünlerine bağımlı kalmadan tek bir yerden izlenememesi; global outage dönemlerinde uyarı fırtınası yaşanması; basit ping kontrolleri dışında, gecikme ve SLO bazlı kalite takibi yapılamaması.",
+    "architecture": "Sistem; YAML/TXT tabanlı hedef tanım dosyalarından beslenen asenkron bir monitor döngüsü, merkezi SQLite (WAL modunda) veri katmanı, FastAPI tabanlı REST API ve NOC dashboard, Prometheus metrik endpoint'i ve CLI/TUI raporlama bileşenlerinden oluşuyor. Reverse proxy katmanında Nginx ile /metrics gibi kritik uçlar Basic Auth ve ağ politikalarıyla korunuyor. Docker Compose ile tüm bileşenler tek komutla ayağa kaldırılacak şekilde paketlenmiş durumda.",
+    "implementation": {
+      "backend": "Python 3.10+ üzerinde asyncio ve aiohttp kullanılarak binlerce HTTP/HTTPS hedefi aynı anda, backpressure kontrollü biçimde izleyen bir monitor döngüsü tasarlandı. AIMD tabanlı eş zamanlılık kontrolüyle hem yüksek throughput hem de servislerin taşmaması hedeflendi. SSRF koruması için DNS çözümleme ve özel IP filtreleri eklendi; yanıt gövdesi boyutu sınırı ve TLS sertifika süresi kontrolü gibi güvenlik/güvenilirlik önlemleri konfigüre edilebilir hale getirildi.",
+      "frontend": "FastAPI tabanlı dashboard için HTML, CSS ve Vanilla JavaScript ile hafif bir NOC arayüzü kurgulandı. Servis durum özetleri, incident listeleri ve SLO raporları; API'den JSON olarak okunup, kart ve tablo bileşenleriyle görselleştiriliyor. Mobil uyumluluk için responsif grid yapısı ve sade bileşen seti tercih edildi.",
+      "database": "Kalıcı veri katmanı olarak SQLite, WAL modunda çalışacak şekilde yapılandırıldı. Uptime, gecikme ve incident kayıtları; hedef ve dalga (wave) bazlı olarak indekslenmiş tablolarda tutuluyor. Percentile (p50/p95/p99) hesapları için hem okunabilir hem de yazma maliyetini dengeleyen sorgular tasarlandı."
+    },
+    "performance": "Asenkron IO modeli ve AIMD backpressure sayesinde yüksek hedef sayısında bile kararlı izleme sağlandı. HTTP timeout, retry, jitter ve global circuit breaker mekanizmalarıyla ağ kesintilerinde gereksiz uyarı fırtınaları önlendi. Prometheus metrikleri üzerinden gecikme dağılımlarını ve error budget tüketimini izleyerek, sorgu ve indeks tasarımlarında ince ayarlar yapıldı.",
+    "engineering": "Proje boyunca; konfigürasyonların ortam değişkenleriyle yönetilmesi, SSRF ve gizli bilgi sızıntılarına karşı savunma-katlı (defense-in-depth) yaklaşım, CI/CD'de Ruff, Pytest ve Gitleaks entegrasyonu gibi modern mühendislik pratikleri benimsendi. Docker Compose ile tekrar üretilebilir ortamlar; START/README dokümantasyonlarıyla ise hızlı onboarding deneyimi hedeflendi.",
+    "github": "https://github.com/ArdaKaradag36/WEB-MONITOR",
+    "demo": ""
+  },
+  {
+    "title": "WEB-AUDIT – Tarayıcı Tabanlı Web Uygulaması Denetim Aracı",
+    "role": "Stajyer – Security & Quality Signals Odaklı Geliştirici",
+    "timeline": "2025 (BVYS Stajı)",
+    "stack": [
+      "Playwright",
+      "TypeScript",
+      "Node.js",
+      "C#",
+      ".NET",
+      "PostgreSQL",
+      "Docker"
+    ],
+    "description": "BVYS ortamında çalışan web uygulamalarının tarayıcı üzerinden (Playwright) denetlenip teknik risk sinyallerinin üretilmesini sağlayan WEB-AUDIT çekirdeğine katkı sağladım. Sistem; güvenlik başlıkları, ağ hataları, erişilebilirlik/SEO/mahremiyet sinyalleri ve UI etkileşim kapsamını analiz eden, çıktıları JSON artefaktları olarak üreten bir denetim altyapısı sunuyor. [Kaynak: `WEB-AUDIT` README] (https://github.com/ArdaKaradag36/WEB-AUDIT)",
+    "problem": "Klasik uptime veya basit fonksiyonel testlerin ötesinde; güvenlik duruşu, üçüncü parti izleme, erişilebilirlik ve ağ hataları gibi konularda sistematik ve tekrarlanabilir tarama yapılmaması. Manuel tarayıcı kontrolleri hem sürdürülebilir değildi hem de CI pipeline'larına kolayca entegre edilemiyordu.",
+    "architecture": "WEB-AUDIT; Playwright tabanlı bir runner çekirdeği, denetim işlerini ve sonuçlarını tutan Postgres job store, bu işleri işleyen Queue Worker servisleri ve çıktıları toplayan/raporlayan ek bileşenlerden oluşuyor. Host ve runner tarafında SSRF korumaları, kurumsal sertifikasyon ve politika ihtiyaçları için mTLS ve imzalama (signing) mekanizmaları planlanmış durumda. CI entegrasyonu için her çalışmada `summary.json`, `gaps.json`, `console.json`, `network.json` ve benzeri artefaktlar üretiliyor.",
+    "implementation": {
+      "backend": "Runner çekirdeğinde HTTP/network/console olaylarını toplayan, sayfa yüklendikçe güvenlik başlıkları, yönlendirmeler, üçüncü parti scriptler ve hatalı istekleri analiz eden senaryolar tasarlandı. Host ve runner arasında SSRF yüzeyini azaltmak için host allowlist'leri, redirect politikaları ve hassas endpoint'ler için ek kontroller devreye alındı. Postgres tarafında job ve run kayıtlarını tutan şema, worker ölçeklemesine uygun olacak şekilde modellendi.",
+      "frontend": "Projenin odak noktası otomasyon ve raporlama olduğundan, UI tarafında temel rapor ekranları ve CI entegrasyonu odaklı çıktı görselleştirmeleri önceliklendirildi. A11y job'ları ile erişilebilirlik bulguları; ayrı dokümantasyon ve dashboard'lar üzerinden okunabilir hale getirildi.",
+      "database": "Postgres üzerinde job, run, step ve artefakt kayıtlarını saklayan bir yapı kurgulandı. Denetim çıktılarının boyutu ve sorgu desenleri göz önünde bulundurularak indeksler ve saklama (retention) politikaları belirlendi. Worker ölçeklemesi için job kuyruğu ve durum makineleri tasarlandı."
+    },
+    "performance": "Playwright tabanlı testlerin paralel koşturulması ve job store mimarisi sayesinde, birden fazla site ve senaryonun CI içinde makul sürelerde tamamlanması sağlandı. Ağ isteklerinin ve console log'larının toplu işlenmesi için streaming yerine batch yaklaşımı kullanıldığı durumlarda, hem bellek kullanımı hem de çıktı boyutları arasında denge kuruldu.",
+    "engineering": "WEB-AUDIT'te ürün yaklaşımı \"güvenlik-öncelikli sinyal üretimi\" olarak belirlendi; bu nedenle UI otomasyon metrikleri iş kuralı doğruluğu yerine yalnızca sinyal olarak konumlandırıldı. Kurumsal hardening için mTLS, imzalama, politika dokümantasyonları; CI tarafında ise tekrar üretilebilir runner imajları, START/README ve docs/ altındaki rehberler ile operasyonel şeffaflık hedeflendi.",
+    "github": "https://github.com/ArdaKaradag36/WEB-AUDIT",
+    "demo": ""
   }
 ]
 
