@@ -625,6 +625,51 @@ footer {
     gap: 10px;
 }
 
+.skills-list--grouped {
+    gap: 0;
+}
+
+.skills-category {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.skills-category + .skills-category {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(165, 180, 252, 0.22);
+}
+
+.skills-category-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    margin-bottom: 2px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(165, 180, 252, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.skills-category-title::before {
+    content: '';
+    width: 4px;
+    height: 1em;
+    border-radius: 2px;
+    background: linear-gradient(180deg, var(--accent-color), rgba(165, 180, 252, 0.35));
+}
+
+.skill-item .skill-level.skill-level--long {
+    font-size: 0.72rem;
+    max-width: 58%;
+    text-align: right;
+    line-height: 1.35;
+}
+
 .skill-item {
     display: flex;
     justify-content: space-between;
@@ -654,6 +699,49 @@ footer {
     padding: 4px 8px;
     border-radius: 12px;
     font-size: 0.85rem;
+}
+
+/* ==================== AI PAGE — Çalışmalarım project-card düzeni ile uyumlu ==================== */
+.ai-page-intro {
+    margin-bottom: 8px;
+}
+
+.ai-page-intro .card-title {
+    font-size: 1.2rem;
+}
+
+.ai-page-intro p {
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.75;
+}
+
+.project-card .work-info .ai-detail-list {
+    list-style: none;
+    margin: 14px 0 0 0;
+    padding: 0;
+}
+
+.project-card .work-info .ai-detail-list li {
+    color: #c4c4c4;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    padding: 10px 14px 10px 16px;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 0 10px 10px 0;
+    border-left: 3px solid var(--accent-color);
+    text-align: left;
+}
+
+.project-card .work-info .ai-detail-list li:last-child {
+    margin-bottom: 0;
+}
+
+.project-card .work-info .ai-detail-list strong {
+    color: #fff;
+    font-weight: 600;
 }
 
 /* ==================== İLETİŞİM AĞACI ==================== */
@@ -926,6 +1014,16 @@ footer {
     .project-card .work-icon {
         font-size: 2.5rem;
         padding: 15px;
+    }
+
+    .skill-item {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .skill-level.skill-level--long {
+        max-width: 100%;
+        text-align: left;
     }
 }
 

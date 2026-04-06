@@ -21,13 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
         'certificates.html':'sertifikalar.html',
         'deneyim.html':     'experience.html',
         'experience.html':  'deneyim.html',
+        'yapayzeka.html':   'ai.html',
+        'ai.html':          'yapayzeka.html',
         'iletisim.html':    'contact.html',
         'contact.html':     'iletisim.html',
     };
 
     const trPages = new Set([
         'index.html', 'hakkimda.html', 'calismalarim.html',
-        'sertifikalar.html', 'deneyim.html', 'iletisim.html'
+        'sertifikalar.html', 'deneyim.html', 'yapayzeka.html', 'iletisim.html'
     ]);
 
     const page = window.location.pathname.split('/').pop() || 'index.html';
