@@ -990,6 +990,54 @@ footer {
     background: var(--accent-color);
 }
 
+/* ==================== SCROLL TO TOP (tüm sayfalar) ==================== */
+.scroll-to-top {
+    position: fixed;
+    bottom: 28px;
+    right: 24px;
+    z-index: 9998;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(165, 180, 252, 0.45);
+    background: rgba(15, 17, 21, 0.92);
+    color: var(--accent-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(16px);
+    transition: opacity 0.35s ease, visibility 0.35s ease, transform 0.35s ease,
+        background 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 10px 36px rgba(0, 0, 0, 0.4);
+}
+
+.scroll-to-top--visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    background: var(--accent-color);
+    color: #000;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 24px rgba(165, 180, 252, 0.45);
+}
+
+.scroll-to-top:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 900px) {
     h1 { font-size: 2.5rem; }

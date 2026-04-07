@@ -43,6 +43,29 @@ document.addEventListener('DOMContentLoaded', () => {
         `<a href="${isTr ? otherPage : page}" class="lang-btn${!isTr ? ' lang-active' : ''}">EN</a>`;
     document.body.appendChild(switcher);
 
+    // Yukarı çık — tüm sayfalar
+    const scrollTopBtn = document.createElement('button');
+    scrollTopBtn.type = 'button';
+    scrollTopBtn.className = 'scroll-to-top';
+    scrollTopBtn.setAttribute('aria-label', isTr ? 'Sayfanın başına dön' : 'Back to top');
+    scrollTopBtn.innerHTML = '<i class="fas fa-chevron-up" aria-hidden="true"></i>';
+    document.body.appendChild(scrollTopBtn);
+
+    const toggleScrollTopBtn = () => {
+        if (window.scrollY > 380) {
+            scrollTopBtn.classList.add('scroll-to-top--visible');
+        } else {
+            scrollTopBtn.classList.remove('scroll-to-top--visible');
+        }
+    };
+    window.addEventListener('scroll', toggleScrollTopBtn, { passive: true });
+    toggleScrollTopBtn();
+
+    scrollTopBtn.addEventListener('click', () => {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+
     // Modal — sadece bu sayfada modal varsa dinleyici ekle
     const modal = document.getElementById('imageModal');
     if (modal) {
