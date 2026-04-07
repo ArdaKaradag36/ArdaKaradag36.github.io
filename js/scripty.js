@@ -43,16 +43,22 @@ document.addEventListener('DOMContentLoaded', () => {
         `<a href="${isTr ? otherPage : page}" class="lang-btn${!isTr ? ' lang-active' : ''}">EN</a>`;
     document.body.appendChild(switcher);
 
-    // Yukarı çık — tüm sayfalar
+    // Yukarı çık — tüm sayfalar (SVG ok: FA yüklenmese de görünür)
     const scrollTopBtn = document.createElement('button');
     scrollTopBtn.type = 'button';
     scrollTopBtn.className = 'scroll-to-top';
-    scrollTopBtn.setAttribute('aria-label', isTr ? 'Sayfanın başına dön' : 'Back to top');
-    scrollTopBtn.innerHTML = '<i class="fas fa-chevron-up" aria-hidden="true"></i>';
+    const topLabel = isTr ? 'Sayfanın başına dön' : 'Back to top';
+    scrollTopBtn.setAttribute('aria-label', topLabel);
+    scrollTopBtn.setAttribute('title', topLabel);
+    scrollTopBtn.innerHTML =
+        '<svg class="scroll-to-top-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
     document.body.appendChild(scrollTopBtn);
 
+    const getScrollY = () =>
+        window.scrollY ?? window.pageYOffset ?? document.documentElement.scrollTop ?? 0;
+
     const toggleScrollTopBtn = () => {
-        if (window.scrollY > 380) {
+        if (getScrollY() > 200) {
             scrollTopBtn.classList.add('scroll-to-top--visible');
         } else {
             scrollTopBtn.classList.remove('scroll-to-top--visible');

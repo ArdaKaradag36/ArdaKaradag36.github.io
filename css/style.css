@@ -1038,6 +1038,11 @@ footer {
     outline-offset: 3px;
 }
 
+.scroll-to-top-svg {
+    display: block;
+    flex-shrink: 0;
+}
+
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 900px) {
     h1 { font-size: 2.5rem; }
