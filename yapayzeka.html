@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yapay Zeka Destekli Geliştirme | Arda Karadağ</title>
-    <meta name="description" content="AI-First iş akışı, Cursor, BPMN modelleme, dokümantasyon, IoT ve yerel LLM — üretken yapay zeka ile full stack ve sistem tasarımı.">
+    <meta name="description" content="Katmanlı yapay zeka iş akışı: dizüstü ve kasada yerel modeller, kamuda kapalı AI, Gemini, Cursor, bulut servisleri ve proje teslim kalıpları.">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -29,132 +29,154 @@
         <h2 class="section-heading">Yapay Zeka Destekli Geliştirme Ekosistemim</h2>
 
         <section class="glass-card github-section ai-page-intro">
-            <div class="card-title"><i class="fas fa-robot"></i> AI-First workflow</div>
+            <div class="card-title"><i class="fas fa-robot"></i> Katmanlı, bilinçli yapay zeka</div>
             <p>
-                Yazılım geliştirme süreçlerimi sadece kod yazmak değil, bir <strong>«AI-First»</strong> (yapay zeka öncelikli) iş akışı etrafında kurguluyorum.
-                Üretken yapay zekayı bir yardımcı araçtan ziyade; <strong>full-stack</strong>, <strong>IoT</strong> ve <strong>sistem tasarımı</strong> projelerimin her aşamasında stratejik bir iş ortağı olarak konumlandırıyorum.
+                Üretken yapay zekayı <strong>duyarlılık</strong>, <strong>işlem gücü</strong> ve <strong>göreve</strong> göre yönlendiriyorum — alışkanlığa göre değil.
+                Dizüstüde hafif modeller günlük işi taşır; masaüstü kasada büyük <strong>Qwen</strong> yığınları derin analiz için devreye girer;
+                <strong>Cursor</strong> ve <strong>Gemini</strong> ile bulut destekli tasarım ve teslimat hızlanır.
+                Kamu kurumu bağlamında <strong>kapalı, yerinde çıkarım</strong> bir tercih değil, zorunluluktur — ve iş akışlarımı bu sınıra göre kurgularım.
             </p>
         </section>
 
         <div class="projects-grid">
             <div class="glass-card project-card">
+                <div class="work-icon"><i class="fas fa-laptop"></i></div>
+                <div class="work-info">
+                    <h4>Dizüstü — Günlük Yerel Yapay Zeka</h4>
+                    <p>
+                        Dizüstü bilgisayardaki küçük açık ağırlıklı modeller, <strong>her an hazır, çevrimdışı çalışabilen</strong> katmanım — buluta uzanmadan günlük tempoyu karşılar.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">7B–14B sınıfı</span>
+                        <span class="tech-badge">Ollama / LM Studio</span>
+                        <span class="tech-badge">Çevrimdışı öncelik</span>
+                    </div>
+                    <ul class="ai-detail-list">
+                        <li><strong>Günlük ritim:</strong> Not taslakları, toplantı özetleri, SQL veya API iskeletleri, commit öncesi mantık kontrolü — düşük gecikme, ağ bağımlılığı yok.</li>
+                        <li><strong>Varsayılan gizlilik:</strong> Kişisel taslaklar, erken fikirler ve henüz sınıflandırılmamış materyal, bilinçli olarak üst kata taşınana kadar cihazda kalır.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="glass-card project-card">
+                <div class="work-icon"><i class="fas fa-server"></i></div>
+                <div class="work-info">
+                    <h4>Masaüstü Kasa — Büyük Qwen ile Analiz</h4>
+                    <p>
+                        Yeterli VRAM’e sahip masaüstü <strong>kasa</strong>da <strong>büyük Qwen</strong> modelleri — Qwen2.5 / Qwen3 sınıfı — çalıştırırım; taşınabilirlikten çok derinlik önemli olduğunda.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Qwen2.5</span>
+                        <span class="tech-badge">Qwen3</span>
+                        <span class="tech-badge">32B+</span>
+                        <span class="tech-badge">Veri analizi</span>
+                    </div>
+                    <ul class="ai-detail-list">
+                        <li><strong>Analitik yükler:</strong> Tablo dışa aktarımları, log kütleleri, şema ilişkileri ve uzun belgeler arasında karşılaştırmalı metrikler — hassas veriyi kamuya açık API’ye göndermeden.</li>
+                        <li><strong>Ölçekli muhakeme:</strong> Çok dosyalı sentez, anomali üzerinde hipotez testi ve mimari kararlara beslenen yapılandırılmış anlatılar — tamamen yerel ağırlıklarla.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="glass-card project-card">
+                <div class="work-icon"><i class="fas fa-landmark"></i></div>
+                <div class="work-info">
+                    <h4>Kamu Kurumu — Neden Kapalı / Yerel AI</h4>
+                    <p>
+                        <strong>Devlet ve kurumsal</strong> ortamlarda üretken yapay zeka, egemenlik ve uyumlulukla hizalanmalı — yalnızca kolaylık için değil.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Veri yerleşimi</span>
+                        <span class="tech-badge">Hava boşluklu</span>
+                        <span class="tech-badge">KVKK / GDPR</span>
+                        <span class="tech-badge">Yerinde</span>
+                    </div>
+                    <ul class="ai-detail-list">
+                        <li><strong>Egemenlik:</strong> Vatandaş, operasyonel ve denetim verisi kurumsal çevre içinde kalır — üçüncü taraf çıkarım izi oluşmaz.</li>
+                        <li><strong>Dış sızıntı yok:</strong> Kapalı veya yerinde yığınlar; istem, ek ve model çıktılarının kontrolsüz sınırı geçmesini engeller.</li>
+                        <li><strong>Uyum ve ihale:</strong> İzlenebilir kurulumlar, sınıflandırma bilinçli iş akışları; kamu ihale ve bilgi güvenliği politikasıyla uyum — plansız bulut denemeleri değil.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="glass-card project-card">
+                <div class="work-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+                <div class="work-info">
+                    <h4>Gemini — Tasarım Muhakemesi ve Uzun Bağlam</h4>
+                    <p>
+                        <strong>Gemini</strong>, güçlü muhakeme ve geniş bağlam penceresine yaslandığım yer — özellikle uygulama <em>sertleşmeden önce</em>.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Gemini Pro</span>
+                        <span class="tech-badge">BPMN</span>
+                        <span class="tech-badge">Long-context</span>
+                        <span class="tech-badge">Mimari</span>
+                    </div>
+                    <ul class="ai-detail-list">
+                        <li><strong>Süreç ve mimari:</strong> Karmaşık akışları <strong>BPMN</strong> ile modelleme, entegrasyon sınırlarını zorlama ve kod tabanı esnekken tasarım seçeneklerini karşılaştırma.</li>
+                        <li><strong>Güçlü olduğu verim:</strong> Büyük şartname klasörleri, toplantı notları ve çok belgeli kütleleri tek geçişte işleme — saatler sürebilecek karşılaştırmalı teknik rapor ve sentez, gözden geçirilebilir yapıda.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="glass-card project-card">
                 <div class="work-icon"><i class="fas fa-screwdriver-wrench"></i></div>
                 <div class="work-info">
-                    <h4>IDE ve Geliştirme Deneyimi</h4>
+                    <h4>Cursor — Yapay Zeka Odaklı Geliştirme</h4>
                     <p>
-                        Yaklaşık <strong>yarım yıldır</strong> ana çalışma ortamım olan <strong>Cursor</strong> içerisinde;
-                        <strong>GPT-4o</strong>, <strong>Claude 3.5 Sonnet</strong> ve <strong>Gemini 1.5 Pro</strong> modellerini hibrit bir şekilde yönetiyorum.
+                        Yaklaşık <strong>altı aydır</strong> birincil IDE’m <strong>Cursor</strong> — yapay zeka, düzenle-derle-incele döngüsüne sonradan eklenen değil, baştan örülü.
                     </p>
                     <div class="tech-stack">
                         <span class="tech-badge">Cursor</span>
-                        <span class="tech-badge">GPT-4o</span>
-                        <span class="tech-badge">Claude 3.5</span>
-                        <span class="tech-badge">Gemini 1.5 Pro</span>
+                        <span class="tech-badge">Agent modu</span>
+                        <span class="tech-badge">Çoklu model</span>
                     </div>
                     <ul class="ai-detail-list">
-                        <li><strong>Modüler yaklaşım:</strong> Projenin karmaşıklığına göre model değiştirerek; kod incelemesi (code review), refaktör ve karmaşık algoritmaların optimize edilmesi süreçlerinde verimliliği artırıyorum.</li>
+                        <li><strong>İş akışı entegrasyonu:</strong> Satır içi tamamlama, kapsamlı refaktör, test iskeleti ve dosyalar arası agent görevleri — açık depo bağlamıyla, izole istemlerle değil.</li>
+                        <li><strong>Model yönlendirme:</strong> Cursor içinde göreve göre sınır modeller arasında geçiş — kod incelemesi ve hassas diff’ler bir modelde, algoritma ayarı ve keşif başka birinde; editörden çıkmadan.</li>
+                        <li><strong>Kalite kapısı:</strong> Üretilen SQL, yapılandırma ve testler asla olduğu gibi birleştirilmez; her katkıda olduğu gibi manuel incelemeden geçer.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="glass-card project-card">
-                <div class="work-icon"><i class="fas fa-diagram-project"></i></div>
+                <div class="work-icon"><i class="fas fa-cloud"></i></div>
                 <div class="work-info">
-                    <h4>Sistem Tasarımı ve BPMN Modelleme</h4>
-                    <p>İş süreçlerini koda dökmeden önce mimariyi sağlam temellere oturtuyorum.</p>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Gemini</span>
-                        <span class="tech-badge">BPMN</span>
-                        <span class="tech-badge">Sistem mimarisi</span>
-                    </div>
-                    <ul class="ai-detail-list">
-                        <li><strong>Süreç otomasyonu:</strong> Gemini’nin mantıksal analiz yeteneklerini kullanarak karmaşık iş akışlarını <strong>BPMN</strong> (Business Process Model and Notation) standartlarında modelliyor; sistem mimarisini geliştirme aşamasına geçmeden optimize ediyorum.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="glass-card project-card">
-                <div class="work-icon"><i class="fas fa-palette"></i></div>
-                <div class="work-info">
-                    <h4>Görsel Prototipleme: Analogdan Dijitale</h4>
-                    <p>Fikirlerimi kağıt üzerinde başlatsam da, yapay zeka ile hızla dijital varlıklara dönüştürüyorum.</p>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Nano Banana</span>
-                        <span class="tech-badge">Stitch</span>
-                        <span class="tech-badge">UI / şema</span>
-                        <span class="tech-badge">Prototip</span>
-                    </div>
-                    <ul class="ai-detail-list">
-                        <li><strong>Görsel araçlar:</strong> Kağıda çizdiğim ham arayüz taslaklarını, şemaları ve mekanik yerleşim fikirlerini <strong>Nano Banana</strong> ve <strong>Stitch</strong> ile görselleştiriyor; konsept aşamasındaki fikirleri hızla somut dijital prototiplere evriltiyorum.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="glass-card project-card">
-                <div class="work-icon"><i class="fas fa-file-lines"></i></div>
-                <div class="work-info">
-                    <h4>Dokümantasyon ve Stratejik Planlama</h4>
-                    <p>Uzun metinler, PRD ve paydaş raporlarında üretken modelleri süreç disipliniyle kullanıyorum.</p>
+                    <h4>Bulut Modelleri ve Servisleri</h4>
+                    <p>
+                        Veri sınıflandırması izin verdiğinde <strong>bulut sınır modelleri</strong> erişimi genişletir — uzun metin, geniş araştırma ve API destekli otomasyon.
+                    </p>
                     <div class="tech-stack">
                         <span class="tech-badge">ChatGPT Plus</span>
-                        <span class="tech-badge">Gemini Pro</span>
-                        <span class="tech-badge">Long-context</span>
+                        <span class="tech-badge">GPT-4o</span>
+                        <span class="tech-badge">Claude</span>
+                        <span class="tech-badge">Cloud API</span>
                     </div>
                     <ul class="ai-detail-list">
-                        <li><strong>ChatGPT Plus (2+ yıl):</strong> Teknik gereksinim dokümanları (PRD), API sözleşme taslakları ve paydaş raporlarının hazırlanması.</li>
-                        <li><strong>Google Gemini (1+ yıl):</strong> Özellikle uzun bağlam (long-context) yeteneğinden yararlanarak geniş kapsamlı proje dosyalarının analizi ve karşılaştırmalı teknik raporlama.</li>
+                        <li><strong>Dokümantasyon ve strateji:</strong> PRD, API sözleşme taslakları, paydaş raporları — ChatGPT Plus uzun süredir katmanda; muhakeme derinliği uyduğunda Claude / GPT.</li>
+                        <li><strong>Sınırlı kullanım:</strong> Bulut, materyal sınıflandırıldıktan sonra bilinçli seçilir; kısıtlı içerik dizüstü, kasa Qwen veya yerinde kalır — «varsayılan» değil.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="glass-card project-card">
-                <div class="work-icon"><i class="fas fa-shield-halved"></i></div>
+                <div class="work-icon"><i class="fas fa-layer-group"></i></div>
                 <div class="work-info">
-                    <h4>Kod, Güvenlik ve Kalite Kontrol</h4>
-                    <p>Yapay zeka çıktılarını hiçbir zaman «olduğu gibi» kabul etmiyorum.</p>
+                    <h4>Proje Tesliminde Yapay Zeka Kalıpları</h4>
+                    <p>
+                        ERP, IoT, mobil ve veritabanı işlerinde aynı <strong>kalıpları</strong> tekrarlarım — tek bir kod tabanına özel numaralar değil, genel roller.
+                    </p>
                     <div class="tech-stack">
-                        <span class="tech-badge">Manuel review</span>
-                        <span class="tech-badge">YAML / Docker / Bash</span>
-                        <span class="tech-badge">SQL</span>
-                    </div>
-                    <ul class="ai-detail-list">
-                        <li><strong>Yüksek denetim:</strong> Üretilen SQL sorguları, birim testleri ve yapılandırma dosyalarını (YAML, Docker, Bash) mutlaka manuel gözden geçirme ve güvenlik süzgecinden geçirerek ana codebase’e dahil ediyorum.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="glass-card project-card">
-                <div class="work-icon"><i class="fas fa-microchip"></i></div>
-                <div class="work-info">
-                    <h4>Donanım, IoT ve Mekanik Sinerji</h4>
-                    <p><strong>AirSense</strong> gibi projelerimde yapay zekayı bir «dijital danışman» olarak kullanıyorum.</p>
-                    <div class="tech-stack">
-                        <span class="tech-badge">ESP32</span>
-                        <span class="tech-badge">Datasheet</span>
+                        <span class="tech-badge">Full-stack</span>
                         <span class="tech-badge">IoT</span>
+                        <span class="tech-badge">SQL / API</span>
+                        <span class="tech-badge">Doküman zinciri</span>
                     </div>
                     <ul class="ai-detail-list">
-                        <li><strong>Datasheet analizi:</strong> ESP32 ve sensörlerin karmaşık datasheet verilerini yorumlama, hata ayıklama (debugging) ve donanım–yazılım entegrasyonu aşamalarında asistanlık.</li>
-                        <li><strong>Risk analizi:</strong> Mekanik montaj ve sensör yerleşimi gibi fiziksel prototipleme süreçlerinde kavramsal tasarım desteği.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="glass-card project-card">
-                <div class="work-icon"><i class="fas fa-brain"></i></div>
-                <div class="work-info">
-                    <h4>Yerel LLM ve Veri Egemenliği</h4>
-                    <p>Veri gizliliğinin (privacy-by-design) ön planda olduğu senaryolar üzerine yoğunlaşıyorum.</p>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Llama 3</span>
-                        <span class="tech-badge">Qwen</span>
-                        <span class="tech-badge">RAG</span>
-                        <span class="tech-badge">Fine-tuning</span>
-                    </div>
-                    <ul class="ai-detail-list">
-                        <li><strong>Llama 3 &amp; Qwen:</strong> Açık kaynaklı modeller üzerinde yerel çıkarım (local inference) denemeleri.</li>
-                        <li><strong>RAG &amp; fine-tuning:</strong> Kurumsal veya kişisel veri setlerinin dış dünyaya sızmadan işlenebilmesi için RAG (Retrieval-Augmented Generation) mimarileri üzerinde yetkinlik geliştiriyorum.</li>
-                        <li><strong>Vizyon:</strong> Verinin dışarı çıkamadığı yüksek güvenlikli projelerde yapay zekayı kapalı devre sistemlere entegre ederek verimlilik sağlamak.</li>
+                        <li><strong>Mimari denemeler:</strong> Uygulamayı kilitlemeden API şekillerini, durum makinelerini ve hata yollarını zorlarım — incelemeden geçmeyen taslakları atarım.</li>
+                        <li><strong>Gömülü ve entegrasyon:</strong> Datasheet yorumu, MQTT / seri hata ayıklama anlatıları, donanım–yazılım sınır kontrolleri.</li>
+                        <li><strong>Veri katmanı:</strong> Sorgu taslakları, indeks gerekçesi ve migrasyon iskeletleri — üretim kısıtları ve explain plan ile doğrulanır.</li>
+                        <li><strong>Dokümantasyon zinciri:</strong> Gereksinim → diyagram → uygulama notları; her çıktı insana ait, yapay zeka hızlandırır.</li>
                     </ul>
                 </div>
             </div>

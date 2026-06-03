@@ -35,7 +35,205 @@
                 </p>
             </header>
 
-            <div id="case-studies-root" aria-live="polite"></div>
+            <div id="case-studies-root" aria-live="polite">
+            <article class="glass-card case-study" aria-labelledby="case-study-title-0">
+                <header class="case-study-header">
+                    <div class="case-study-stack">
+                        <span class="badge">ESP32</span>
+                        <span class="badge">C++</span>
+                        <span class="badge">MQTT</span>
+                        <span class="badge">Python</span>
+                        <span class="badge">React Native</span>
+                        <span class="badge">SQL</span>
+                    </div>
+                    <h2 id="case-study-title-0" class="case-study-title">AirSense IoT Platform</h2>
+                    <div class="case-study-meta">
+                        <div class="case-study-meta-item"><i class="fas fa-user-tie" aria-hidden="true"></i><span>Kurucu — Yazılım &amp; Full Stack</span></div>
+                        <div class="case-study-meta-item"><i class="fas fa-calendar-alt" aria-hidden="true"></i><span>2025</span></div>
+                    </div>
+                </header>
+                <h3 class="case-study-section-title">Özet</h3>
+                <p class="case-study-text">Gerçek zamanlı hava kalite ölçümü, analiz ve acil durum uyarıları için uçtan uca IoT platformu. Yazılım mimarisi, backend, mobil uygulama ve veri katmanının sahibi ve geliştiricisiyim; saha donanımı ve fiziksel katman ekip iş birliğiyle ilerliyor. Sensör verilerini güvenli biçimde toplayıp merkezî veri tabanında işleyerek mobil uygulama üzerinden okunabilir, aksiyon alınabilir hale getiriyorum.</p>
+                <h3 class="case-study-section-title">Problem Tanımı</h3>
+                <p class="case-study-text">Farklı lokasyonlardaki hava kalite sensörlerinden gelen verilerin dağınık, manuel ve gecikmeli yönetilmesi; anlık eşik aşımlarında bildirim alınamaması ve geçmiş verilerin analitiğe uygun tutulmaması.</p>
+                <h3 class="case-study-section-title">Sistem Mimarisi</h3>
+                <p class="case-study-text">Katmanlı bir mimari kurgulandı: Cihaz katmanında ESP32 tabanlı sensörler, iletişim katmanında MQTT tabanlı mesajlaşma, backend katmanında Python servisleri ve ilişkisel veri tabanı, istemci katmanında React Native mobil uygulama. API yüzeyi REST prensiplerine uygun tasarlandı, okuma/yazma operasyonları için ayrı uç noktalar ve basit, versiyonlanabilir endpoint yapısı kullanıldı.</p>
+                <h3 class="case-study-section-title">Uygulama Detayları</h3>
+                <h4 class="case-study-section-title" style="text-transform: none; opacity: 0.8">Backend</h4>
+                <p class="case-study-text">Backend tarafında Python ile yazılmış servisler MQTT broker'dan gelen verileri tüketip validasyon ve normalizasyon sonrası SQL tabanlı veri tabanına yazıyor. Zaman damgası, cihaz kimliği ve sensör tipine göre indekslenmiş tablolarda saklanan veriler, okuma tarafında hafif SELECT sorguları ve gerekiyorsa toplulaştırma (GROUP BY, window fonksiyonları) ile sunuluyor.</p>
+                <h4 class="case-study-section-title" style="text-transform: none; opacity: 0.8">Frontend</h4>
+                <p class="case-study-text">React Native mobil uygulamada, ekranlar komponent bazlı bir yapı ile modüler tutuldu. Gerçek zamanlı veri okuma için periyodik polling ve hafif cache katmanı kullanıldı. Liste ve grafik bileşenleri, düşük gecikmede yeniden render olacak şekilde sade state yönetimi ile tasarlandı.</p>
+                <h4 class="case-study-section-title" style="text-transform: none; opacity: 0.8">Database</h4>
+                <p class="case-study-text">Veri tabanı, cihaz, ölçüm ve eşik tanımlarını ayrı tablolara bölen, normalize bir şema ile kuruldu. Okuma yoğun sorgular için zaman damgası ve cihaz kimliği üzerinde bileşik indeksler kullanıldı. Sık sorgulanan son X kayıt gibi senaryolar için WHERE koşulları indeks dostu olacak şekilde kurgulandı.</p>
+                <h3 class="case-study-section-title">Performans &amp; Optimizasyon</h3>
+                <p class="case-study-text">Zaman damgası ve cihaz kimliği üzerinde oluşturulan indeksler sayesinde raporlama sorgularında yanıt süresi gözle görülür şekilde iyileştirildi. Sadece ihtiyaç duyulan alanların seçilmesi ve sayfalama uygulanmasıyla, mobil uygulamanın veri çekme süresi ve payload boyutu azaltıldı.</p>
+                <h3 class="case-study-section-title">Mühendislik Pratikleri</h3>
+                <p class="case-study-text">Katmanlı yapı, domain'e özel verimlilik kurallarını data access katmanından ayrıştırarak SOLID prensiplerine yakın bir ayrışma sağladı. Konfigürasyon, ortam değişkenleri ve yeniden kullanılabilir yardımcı fonksiyonlar ayrı modüllere izole edildi. Sensör verisi işleme, hata toleransı ve loglama için modüler fonksiyonlar tercih edildi.</p>
+                <div class="case-study-links">
+                    <a href="https://github.com/ArdaKaradag36" target="_blank" rel="noopener noreferrer" class="case-study-link"><i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span></a>
+                </div>
+            </article>
+
+            <article class="glass-card case-study" aria-labelledby="case-study-title-1">
+                <header class="case-study-header">
+                    <div class="case-study-stack">
+                        <span class="badge">C#</span>
+                        <span class="badge">ASP.NET Core</span>
+                        <span class="badge">Python</span>
+                        <span class="badge">Django</span>
+                        <span class="badge">SQL</span>
+                        <span class="badge">Gemini API</span>
+                    </div>
+                    <h2 id="case-study-title-1" class="case-study-title">MixCodder Stok Takip ERP</h2>
+                    <div class="case-study-meta">
+                        <div class="case-study-meta-item"><i class="fas fa-user-tie" aria-hidden="true"></i><span>Proje Yöneticisi, Backend &amp; Veritabanı Yöneticisi</span></div>
+                        <div class="case-study-meta-item"><i class="fas fa-calendar-alt" aria-hidden="true"></i><span>2025</span></div>
+                    </div>
+                </header>
+                <h3 class="case-study-section-title">Özet</h3>
+                <p class="case-study-text">KOBİ'ler için stok odaklı ERP sistemi. Farklı platformlarda (C# ASP.NET Core ve Python Django) çalışan modüllerle stok, sipariş ve raporlama süreçlerini merkezi bir model altında topluyorum.</p>
+                <h3 class="case-study-section-title">Problem Tanımı</h3>
+                <p class="case-study-text">Manuel takip edilen stok hareketleri, tutarsız raporlar ve farklı sistemlerde kopyalanan veriler hem operasyonel hatalara hem de karar mekanizmasında yanlış metriklere yol açıyordu.</p>
+                <h3 class="case-study-section-title">Sistem Mimarisi</h3>
+                <p class="case-study-text">Sistem, tipik bir katmanlı mimari ile ele alındı: Sunum katmanı (web arayüz), iş kuralları katmanı (domain servisleri) ve veri erişim katmanı (repository/ORM). ASP.NET Core tarafında REST tarzı API'ler; Django tarafında ise yönetim paneli ve belirli domain özel fonksiyonlar sağlandı. Ortak domain modeli ile iki platform arasında veri tutarlılığı korunmaya odaklanıldı.</p>
+                <h3 class="case-study-section-title">Uygulama Detayları</h3>
+                <h4 class="case-study-section-title" style="text-transform: none; opacity: 0.8">Backend</h4>
+                <p class="case-study-text">ASP.NET Core'da controller katmanı sadece HTTP isteklerini karşılayıp, iş kuralları için application/domain servislerine delegasyon yapacak şekilde sade tutuldu. Veritabanı erişiminde ORM ve gerektiği noktada ham SQL sorguları birlikte kullanıldı. Django'da model tanımları ile yönetim paneli üzerinden CRUD operasyonları hızlandırıldı.</p>
+                <h4 class="case-study-section-title" style="text-transform: none; opacity: 0.8">Frontend</h4>
+                <p class="case-study-text">Web arayüzü, stok listeleri ve hareket detaylarını okunabilir kılmak için tablo ve kart bileşenleriyle tasarlandı. Filtreleme, sıralama ve sayfalama fonksiyonları ile büyük veri setlerinde kullanılabilirlik artırıldı.</p>
+                <h4 class="case-study-section-title" style="text-transform: none; opacity: 0.8">Database</h4>
+                <p class="case-study-text">Stok, hareket, depo ve kullanıcı gibi kavramlar ayrı tablolarda, ilişkisel (foreign key) yapı ile modellendi. Sık kullanılan raporlar için tarih, stok ve depo kolonları üzerinde indeksler tanımlandı. Transaction yapıları ile kritik hareketlerde tutarlılık sağlandı.</p>
+                <h3 class="case-study-section-title">Performans &amp; Optimizasyon</h3>
+                <p class="case-study-text">Sorgu planları incelenerek gerekli alanlara indeksler eklendi; ağır raporların önce filtre sonra grupla mantığıyla yazılması sağlandı. Yanıt sürelerini kısaltmak için sadece ihtiyaç duyulan kolonlar seçildi ve gereksiz join'ler sadeleştirildi.</p>
+                <h3 class="case-study-section-title">Mühendislik Pratikleri</h3>
+                <p class="case-study-text">SOLID prensiplerine yakın duran, dependency injection kullanan bir yapı tercih edildi. Ortak kod parçaları yardımcı servisler ve extension metodlar altında toplandı. Katmanlar arası kontratlar (DTO'lar, view modeller) ile domain modeli UI'dan izole edildi.</p>
+                <div class="case-study-links">
+                    <a href="https://github.com/ArdaKaradag36" target="_blank" rel="noopener noreferrer" class="case-study-link"><i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span></a>
+                </div>
+            </article>
+
+            <article class="glass-card case-study" aria-labelledby="case-study-title-2">
+                <header class="case-study-header">
+                    <div class="case-study-stack">
+                        <span class="badge">PostgreSQL</span>
+                        <span class="badge">psql / Bash</span>
+                        <span class="badge">pgAdmin4</span>
+                        <span class="badge">Linux (Ubuntu)</span>
+                        <span class="badge">Kubernetes</span>
+                        <span class="badge">Zabbix</span>
+                        <span class="badge">SQL Otomasyon</span>
+                        <span class="badge">C#</span>
+                        <span class="badge">Selenium</span>
+                        <span class="badge">Playwright</span>
+                        <span class="badge">TypeScript</span>
+                    </div>
+                    <h2 id="case-study-title-2" class="case-study-title">T.C. İçişleri Bakanlığı NVİ — BVYS Yazılım Şubesi</h2>
+                    <div class="case-study-meta">
+                        <div class="case-study-meta-item"><i class="fas fa-user-tie" aria-hidden="true"></i><span>Stajyer — Yazılım Şubesi (BVYS)</span></div>
+                        <div class="case-study-meta-item"><i class="fas fa-calendar-alt" aria-hidden="true"></i><span>2025–2026 (Staj)</span></div>
+                    </div>
+                </header>
+                <h3 class="case-study-section-title">Özet</h3>
+                <p class="case-study-text">T.C. İçişleri Bakanlığı Nüfus ve Vatandaşlık İşleri Genel Müdürlüğü (NVİ) bünyesinde Biyometrik Veri Yönetim Sistemi (BVYS) Yazılım Şubesi'nde staj yaptım. Canlı üretim ve test ortamlarında ileri düzey PostgreSQL operasyonları, kurumsal Linux altyapısı, sistemler arası otomasyon ve ulusal biyometrik veri platformu (parmak izi tanıma ve biyometrik veri işleme dahil) üzerinde sahada aktif proje mimarileriyle çalıştım; özel teknik eğitim ve uygulamalı görevler aldım. C# Selenium ve Playwright ile uçtan uca test otomasyon mimarisine katkı sağladım. Geliştirdiğim WEB-AUDIT ve WEB-MONITOR araçlarını bu stajda da kullandım (ayrı case study olarak bu sayfada). BVYS kamu kurumu ve kapalı kaynak/operasyonel güvenlik kısıtları nedeniyle iç sistem tasarımı, veri akışları veya özel bileşenler hakkında genel veya ayrıntılı kamuya açık açıklama yapamıyorum; aşağıdaki bölümler sorumluluklarımı, kullandığım araçları ve mühendislik pratiklerimi uygun soyutlama düzeyinde anlatır.</p>
+                <h3 class="case-study-section-title">Problem Tanımı</h3>
+                <p class="case-study-text">Ulusal ölçekte biyometrik ve vatandaşlık hizmetleri yükleri; yoğun okuma/yazma, sıkı denetim beklentisi ve sürekli operasyonel değişim altında güvenilir veri tabanı ve altyapı gerektirir. Tekrarlayan manuel DBA ve entegrasyon adımları ölçeklenmiyor; büyük veri setlerinde raporlama ve bakım sorguları gereksiz I/O üretiyor. Web servisleri için de manuel kontrollerin ötesinde, tekrarlanabilir kalite ve güvenlik sinyalleri gerekiyor. Kurum ayrıca Havelsan kaynaklı kurumsal/savunma düzeyi kararlılık pratikleriyle uyumlu, denetlenebilir ve on-prem otomasyon bekliyor.</p>
+                <h3 class="case-study-section-title">Sistem Mimarisi</h3>
+                <p class="case-study-text">Günlük çalışma dört katmanın kesişiminde: kimlik, biyometrik ve işlem verisi için merkezî PostgreSQL; Kubernetes ve Zabbix ile izlenen Ubuntu tabanlı sunucu/küme altyapısı; gelişmiş SQL ve Bash ile kesintisiz sistemler arası veri akışı sağlayan otomasyon katmanı; Playwright/Selenium ve TypeScript destekli denetim/izleme ile web kalite sinyalleri üreten test katmanı. NVİ operasyonel standartları, Havelsan Linux mühendislerinin mentorluğunda askeri/kurumsal kararlılık süreçleri (değişiklik kontrolü, sertleştirme, üretim disiplini) ile desteklendi—genel masaüstü Linux kullanımının ötesinde.</p>
+                <h3 class="case-study-section-title">Uygulama Detayları</h3>
+                <h4 class="case-study-section-title" style="text-transform: none; opacity: 0.8">Backend</h4>
+                <p class="case-study-text">Altyapı ve DevOps tarafında Ubuntu sunucu yönetimi, Kubernetes iş yükleri ve kurumsal kamu ortamında Zabbix izleme üzerinde sahada çalıştım. Havelsan Linux mühendislerinin mentorluğunda yama, servis sağlığı, olay müdahalesi ve güvenli değişiklik pencerelerinde askeri/kurumsal kararlılık süreçleri uygulandı. Tekrarlayan manuel DBA ve entegrasyon görevlerini otomatikleştirmek için ileri SQL scriptleri geliştirdim; karmaşık SQL'i Linux Bash (.sh) işlerine gömerek verinin sistemler arasında zamanlanmış ve denetlenebilir aktarımını sağladım.</p>
+                <h4 class="case-study-section-title" style="text-transform: none; opacity: 0.8">Frontend</h4>
+                <p class="case-study-text">BVYS uygulama tarafında Biyometrik Veri Yönetim Sistemi—parmak izi tanıma ve biyometrik veri işleme—üzerine özel teknik eğitim aldım ve sahaya alınan aktif proje mimarilerinde katkı sundum. Odak; canlı sistem davranışı, izlenebilirlik ve uygulama ekipleriyle koordinasyondu.</p>
+                <h4 class="case-study-section-title" style="text-transform: none; opacity: 0.8">Database</h4>
+                <p class="case-study-text">Veri tabanı yönetimi temel sorumluluklardan biriydi; üretim ve büyük ölçekli test ortamlarında çalıştım. PostgreSQL'i terminal (psql, Bash) ve arayüz (pgAdmin4) ile ileri düzey kullandım: şema ve sorgu ayarı, indeks tasarımı, EXPLAIN/EXPLAIN ANALYZE ile optimizasyon ve sahada aktif mimarilere operasyonel destek. Optimizasyon döngüleri ölç → hipotez → kontrollü değişiklik → yeniden ölçüm; yüksek hacimli biyometrik tablolarda sequential scan ve raporlama I/O'sunu hedefleyen B-tree indeksleri ve sorgu revizyonları uygulandı.</p>
+                <h3 class="case-study-section-title">Performans &amp; Optimizasyon</h3>
+                <p class="case-study-text">Hedefli indeks ve sorgu revizyonları kritik yolları kısalttı, gereksiz tam taramaları ve raporlama I/O'sunu azalttı. Altyapı izleme ve script otomasyonu tekrarlayan operasyonel işlerin manuel süresini düşürdü. Paralel tarayıcı denetimi ve HTTP/HTTPS izleme (WEB-AUDIT ve WEB-MONITOR case study'leri) gecikme, erişilebilirlik ve güvenlik görünürlüğünü harici SaaS olmadan artırdı.</p>
+                <h3 class="case-study-section-title">Mühendislik Pratikleri</h3>
+                <p class="case-study-text">Mühendislik pratiği kamu disiplini ile Havelsan kaynaklı kurumsal kararlılığı birleştirdi: dokümante değişiklikler, tekrar üretilebilir scriptler, üretim erişiminde savunma derinliği, test/üretim ayrımı. Test otomasyonu platform mühendisliği olarak ele alındı—C# Selenium ve Playwright E2E, TypeScript destekli WEB-AUDIT/WEB-MONITOR ile sürekli web performans ve güvenlik izlemesi. Kapalı kaynak yükümlülüklerine uyuldu; iç mimari veya hassas uygulama detayı bu sitede yayımlanmaz.</p>
+                <div class="case-study-links">
+                    <a href="https://github.com/ArdaKaradag36" target="_blank" rel="noopener noreferrer" class="case-study-link"><i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span></a>
+                </div>
+            </article>
+
+            <article class="glass-card case-study" aria-labelledby="case-study-title-3">
+                <header class="case-study-header">
+                    <div class="case-study-stack">
+                        <span class="badge">Python</span>
+                        <span class="badge">FastAPI</span>
+                        <span class="badge">Asyncio</span>
+                        <span class="badge">aiohttp</span>
+                        <span class="badge">SQLite (WAL)</span>
+                        <span class="badge">Docker</span>
+                        <span class="badge">Nginx</span>
+                        <span class="badge">Prometheus</span>
+                    </div>
+                    <h2 id="case-study-title-3" class="case-study-title">WEB-MONITOR – Self-Hosted HTTP/HTTPS İzleme Platformu</h2>
+                    <div class="case-study-meta">
+                        <div class="case-study-meta-item"><i class="fas fa-user-tie" aria-hidden="true"></i><span>Proje Sahibi &amp; Geliştirici</span></div>
+                        <div class="case-study-meta-item"><i class="fas fa-calendar-alt" aria-hidden="true"></i><span>2025–2026</span></div>
+                    </div>
+                </header>
+                <h3 class="case-study-section-title">Özet</h3>
+                <p class="case-study-text">WEB-MONITOR, geliştirdiğim ve sahibi olduğum self-hosted, asenkron HTTP/HTTPS izleme platformudur. Kurumların web uygulama performansını tamamen on-prem izlemesini sağlar; uptime, gecikme ve SLO ihlallerini merkezi dashboard, Prometheus metrikleri ve CLI raporlarıyla görünür kılar. Python/FastAPI çekirdeğin yanında TypeScript destekli yardımcı araç ve entegrasyonlar da projede yer alır. [Kaynak: `WEB-MONITOR` README](https://github.com/ArdaKaradag36/WEB-MONITOR)</p>
+                <h3 class="case-study-section-title">Problem Tanımı</h3>
+                <p class="case-study-text">Kurumsal web servisleri; üçüncü parti SaaS'a bağlı kalmadan, egemen veri merkezlerinde çalışan ve operatörlerin olay anında aksiyon alabileceği performans/erişilebilirlik izlemeye ihtiyaç duyuyor. Yalnızca ping kontrolleri gecikme regresyonlarını ve SLO ihlallerini kaçırıyor; dağınık hedefler ve global kesintilerde backpressure olmadan uyarı fırtınası oluşabiliyor.</p>
+                <h3 class="case-study-section-title">Sistem Mimarisi</h3>
+                <p class="case-study-text">Sistem; YAML/TXT tabanlı hedef tanım dosyalarından beslenen asenkron bir monitor döngüsü, merkezi SQLite (WAL modunda) veri katmanı, FastAPI tabanlı REST API ve NOC dashboard, Prometheus metrik endpoint'i ve CLI/TUI raporlama bileşenlerinden oluşuyor. Reverse proxy katmanında Nginx ile /metrics gibi kritik uçlar Basic Auth ve ağ politikalarıyla korunuyor. Docker Compose ile tüm bileşenler tek komutla ayağa kaldırılacak şekilde paketlenmiş durumda.</p>
+                <h3 class="case-study-section-title">Uygulama Detayları</h3>
+                <h4 class="case-study-section-title" style="text-transform: none; opacity: 0.8">Backend</h4>
+                <p class="case-study-text">Python 3.10+ üzerinde asyncio ve aiohttp kullanılarak binlerce HTTP/HTTPS hedefi aynı anda, backpressure kontrollü biçimde izleyen bir monitor döngüsü tasarlandı. AIMD tabanlı eş zamanlılık kontrolüyle hem yüksek throughput hem de servislerin taşmaması hedeflendi. SSRF koruması için DNS çözümleme ve özel IP filtreleri eklendi; yanıt gövdesi boyutu sınırı ve TLS sertifika süresi kontrolü gibi güvenlik/güvenilirlik önlemleri konfigüre edilebilir hale getirildi.</p>
+                <h4 class="case-study-section-title" style="text-transform: none; opacity: 0.8">Frontend</h4>
+                <p class="case-study-text">FastAPI tabanlı dashboard için HTML, CSS ve Vanilla JavaScript ile hafif bir NOC arayüzü kurgulandı. Servis durum özetleri, incident listeleri ve SLO raporları; API'den JSON olarak okunup, kart ve tablo bileşenleriyle görselleştiriliyor. Mobil uyumluluk için responsif grid yapısı ve sade bileşen seti tercih edildi.</p>
+                <h4 class="case-study-section-title" style="text-transform: none; opacity: 0.8">Database</h4>
+                <p class="case-study-text">Kalıcı veri katmanı olarak SQLite, WAL modunda çalışacak şekilde yapılandırıldı. Uptime, gecikme ve incident kayıtları; hedef ve dalga (wave) bazlı olarak indekslenmiş tablolarda tutuluyor. Percentile (p50/p95/p99) hesapları için hem okunabilir hem de yazma maliyetini dengeleyen sorgular tasarlandı.</p>
+                <h3 class="case-study-section-title">Performans &amp; Optimizasyon</h3>
+                <p class="case-study-text">Asenkron IO modeli ve AIMD backpressure sayesinde yüksek hedef sayısında bile kararlı izleme sağlandı. HTTP timeout, retry, jitter ve global circuit breaker mekanizmalarıyla ağ kesintilerinde gereksiz uyarı fırtınaları önlendi. Prometheus metrikleri üzerinden gecikme dağılımlarını ve error budget tüketimini izleyerek, sorgu ve indeks tasarımlarında ince ayarlar yapıldı.</p>
+                <h3 class="case-study-section-title">Mühendislik Pratikleri</h3>
+                <p class="case-study-text">Ortam değişkenleriyle konfigürasyon, SSRF ve gizli bilgi sızıntısına karşı savunma derinliği, Ruff/Pytest/Gitleaks CI ve Docker Compose ile on-prem operatör onboarding'i hedeflendi. Kamu ve kapalı ortamlarda da kullanılabilecek şekilde tasarlandı; kurulum ve mimari detaylar README'de.</p>
+                <div class="case-study-links">
+                    <a href="https://github.com/ArdaKaradag36/WEB-MONITOR" target="_blank" rel="noopener noreferrer" class="case-study-link"><i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span></a>
+                </div>
+            </article>
+
+            <article class="glass-card case-study" aria-labelledby="case-study-title-4">
+                <header class="case-study-header">
+                    <div class="case-study-stack">
+                        <span class="badge">Playwright</span>
+                        <span class="badge">TypeScript</span>
+                        <span class="badge">Node.js</span>
+                        <span class="badge">C#</span>
+                        <span class="badge">.NET</span>
+                        <span class="badge">PostgreSQL</span>
+                        <span class="badge">Docker</span>
+                    </div>
+                    <h2 id="case-study-title-4" class="case-study-title">WEB-AUDIT – Tarayıcı Tabanlı Web Uygulaması Denetim Aracı</h2>
+                    <div class="case-study-meta">
+                        <div class="case-study-meta-item"><i class="fas fa-user-tie" aria-hidden="true"></i><span>Proje Sahibi &amp; Geliştirici</span></div>
+                        <div class="case-study-meta-item"><i class="fas fa-calendar-alt" aria-hidden="true"></i><span>2025–2026</span></div>
+                    </div>
+                </header>
+                <h3 class="case-study-section-title">Özet</h3>
+                <p class="case-study-text">WEB-AUDIT, geliştirdiğim ve sahibi olduğum TypeScript ve Playwright tabanlı tarayıcı denetim aracıdır. Kapalı, on-prem ortamlarda web uygulamaları için teknik risk keşfini otomatikleştirir: güvenlik başlıkları, ağ hataları, erişilebilirlik/SEO/mahremiyet göstergeleri ve UI etkileşim kapsamı JSON artefaktları olarak güvenlik, QA ve platform ekiplerine sunulur. [Kaynak: `WEB-AUDIT` README](https://github.com/ArdaKaradag36/WEB-AUDIT)</p>
+                <h3 class="case-study-section-title">Problem Tanımı</h3>
+                <p class="case-study-text">Kurumsal ve self-hosted web uygulamaları, uptime veya manuel duman testinin ötesinde; güvenlik duruşu, üçüncü parti izleme, erişilebilirlik açıkları ve ağ hataları için otomatik, CI-dostu taramaya ihtiyaç duyuyor. Ad hoc tarayıcı incelemeleri yavaş ve tutarsız kalıyor; tekrar üretilebilir sinyal üretmek zorlaşıyor.</p>
+                <h3 class="case-study-section-title">Sistem Mimarisi</h3>
+                <p class="case-study-text">WEB-AUDIT; Playwright tabanlı bir runner çekirdeği, denetim işlerini ve sonuçlarını tutan Postgres job store, bu işleri işleyen Queue Worker servisleri ve çıktıları toplayan/raporlayan ek bileşenlerden oluşuyor. Host ve runner tarafında SSRF korumaları, kurumsal sertifikasyon ve politika ihtiyaçları için mTLS ve imzalama (signing) mekanizmaları planlanmış durumda. Her çalışmada tipik olarak `summary.json`, `gaps.json`, `ui-inventory.json` (varsa), `console.json`, `network.json`, `request_failed.json` ve `run.complete.json` üretilir.</p>
+                <h3 class="case-study-section-title">Uygulama Detayları</h3>
+                <h4 class="case-study-section-title" style="text-transform: none; opacity: 0.8">Backend</h4>
+                <p class="case-study-text">Runner çekirdeğinde HTTP/network/console olaylarını toplayan, sayfa yüklendikçe güvenlik başlıkları, yönlendirmeler, üçüncü parti scriptler ve hatalı istekleri analiz eden senaryolar tasarlandı. Host ve runner arasında SSRF yüzeyini azaltmak için host allowlist'leri, redirect politikaları ve hassas endpoint'ler için ek kontroller devreye alındı. Postgres tarafında job ve run kayıtlarını tutan şema, worker ölçeklemesine uygun olacak şekilde modellendi.</p>
+                <h4 class="case-study-section-title" style="text-transform: none; opacity: 0.8">Frontend</h4>
+                <p class="case-study-text">Projenin odak noktası otomasyon ve raporlama olduğundan, UI tarafında temel rapor ekranları ve CI entegrasyonu odaklı çıktı görselleştirmeleri önceliklendirildi. A11y job'ları ile erişilebilirlik bulguları; ayrı dokümantasyon ve dashboard'lar üzerinden okunabilir hale getirildi.</p>
+                <h4 class="case-study-section-title" style="text-transform: none; opacity: 0.8">Database</h4>
+                <p class="case-study-text">Postgres üzerinde job, run, step ve artefakt kayıtlarını saklayan bir yapı kurgulandı. Denetim çıktılarının boyutu ve sorgu desenleri göz önünde bulundurularak indeksler ve saklama (retention) politikaları belirlendi. Worker ölçeklemesi için job kuyruğu ve durum makineleri tasarlandı.</p>
+                <h3 class="case-study-section-title">Performans &amp; Optimizasyon</h3>
+                <p class="case-study-text">Playwright tabanlı testlerin paralel koşturulması ve job store mimarisi sayesinde, birden fazla site ve senaryonun CI içinde makul sürelerde tamamlanması sağlandı. Ağ isteklerinin ve console log'larının toplu işlenmesi için streaming yerine batch yaklaşımı kullanıldığı durumlarda, hem bellek kullanımı hem de çıktı boyutları arasında denge kuruldu.</p>
+                <h3 class="case-study-section-title">Mühendislik Pratikleri</h3>
+                <p class="case-study-text">Ürün yaklaşımı güvenlik-öncelikli sinyal—çıktılar risk ve uyumluluk iş akışlarını besler, tam iş kuralı kanıtı iddia etmez. mTLS, imzalama ve politika rehberleri ile tekrar üretilebilir runner imajları güvenli on-prem CI kullanımını destekler. Kamu ve kapalı ortamlarda da kullanılabilecek şekilde tasarlandı; iç mimari detaylar README ve `docs/` altında.</p>
+                <div class="case-study-links">
+                    <a href="https://github.com/ArdaKaradag36/WEB-AUDIT" target="_blank" rel="noopener noreferrer" class="case-study-link"><i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span></a>
+                </div>
+            </article>
+            </div>
         </section>
 
         <aside class="cv-panel-wrapper" aria-label="Özgeçmiş Önizleme">
@@ -79,7 +277,6 @@
     <footer>&copy; 2025 Arda Karadağ. Tüm Hakları Saklıdır.</footer>
 
     <script src="js/scripty.js"></script>
-    <script type="module" src="js/render-case-studies.js"></script>
 </body>
 </html>
 
